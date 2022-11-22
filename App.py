@@ -64,13 +64,13 @@ if uploaded_file is not None:
     st.write("Coverage: ", nx_comm.coverage(g, com_1)) 
     st.write("Performance: ", nx_comm.performance(g, com_1))
     df = data.loc[data.groupby(['DURATION_MIN']).DURATION_MIN.idxmin()]
-    Best_Route = df[["SOURCE","DESTITATION",'DURATION_MIN']]
+    Best_Route = df[["SOURCE","DESTINATION",'DURATION_MIN']]
     
     if st.button("Click to show edge betweeness centrality of graph"):
         edge_BC = nx.edge_betweenness_centrality(g)
         st.info(sorted(edge_BC.items(), key=lambda edge_BC : (edge_BC[1], edge_BC[0]), reverse = True))
         
     df = data.loc[data.groupby(['DURATION_MIN']).DURATION_MIN.idxmin()]
-    Best_Route = df[["SOURCE","DESTITATION",'DURATION_MIN']]
+    Best_Route = df[["SOURCE","DESTINATION",'DURATION_MIN']]
     
     Best_Route
